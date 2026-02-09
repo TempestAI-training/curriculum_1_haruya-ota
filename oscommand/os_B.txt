@@ -1,1 +1,1 @@
-chmod +x chech.sh
+chmod +x check.sh

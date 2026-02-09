@@ -1,7 +1,10 @@
 name: OS Assignment Check
 
 on:
-  workflow_dispatch:
+  push:
+    branches:
+      - oscommand
+  workflow_dispatch: {}
 
 jobs:
   check:

@@ -9,10 +9,10 @@ on:
 jobs:
   check:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+
 
       # --- 課題Bの確認 ---
       - name: Check os_B.txt

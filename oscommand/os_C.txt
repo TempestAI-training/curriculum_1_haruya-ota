@@ -1,1 +1,0 @@
-cat users.list | grep 'user' | cut -d ':' -f 2 > result.txt

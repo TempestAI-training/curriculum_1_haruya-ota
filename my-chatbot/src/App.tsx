@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { ViewState } from './types';
-import StartScreen from './components/StartScreen';
+import StartScreen from './components/StartScreen/StartScreen';
 import ChatScreen from './components/Chat/ChatScreen'; 
 
 function App() {

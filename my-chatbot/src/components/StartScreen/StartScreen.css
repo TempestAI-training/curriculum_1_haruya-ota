@@ -1,0 +1,43 @@
+/*画面全体の背景*/
+.screen-container{
+  display: flex;
+   justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #F0F4F8;
+    padding: 20px;
+}
+
+/*中央のチャット画面*/
+.start-screen{
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    background-color: #ffffff;
+    border-radius: 48px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.header-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: #584b4b;
+  margin-bottom: 10px;
+}
+
+.Start-button {
+
+  background-color: #4361EE; /* 鮮やかなブルー */
+  color: white;
+  border: none;
+  border-radius: 24px;      /* ボタンも丸める */
+  padding: 12px 28px;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s;      /* 動きを滑らかに */
+  box-shadow: 0 4px 12px rgba(67, 97, 238, 0.3); 
+}

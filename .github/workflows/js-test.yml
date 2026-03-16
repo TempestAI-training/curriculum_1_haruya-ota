@@ -1,36 +1,28 @@
 name: Node.js CI
 
-# いつ変更するか
 on:
   push:
     branches: ["main", "js-ci-practice"]
   pull_request:
 
-# 何を実行するか
 jobs:
   build:
     runs-on: ubuntu-latest
 
     defaults:
       run:
-      working-directory: ./ci-task
+        working-directory: ./ci-task
 
     steps:
-    # 1. コードを取得
-    - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-    # 2. Node.js をセットアップ
-    - name: Use Node.js
-      uses: actions/setup-node@v4
-      with:
-        node-version: '20'
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
 
-    # 3. 依存ライブラリをインストール
-    - name: Install dependencies
-      run: npm install
+      - name: Install dependencies
+        run: npm install
 
-    # 4. テストを実行
-    - name: Run tests
-      run: npm test
-
-      
+      - name: Run tests
+        run: npm test

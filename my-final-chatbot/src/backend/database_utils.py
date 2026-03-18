@@ -43,3 +43,29 @@ def get_chat_history(session_id: int, limit: int = 10):
             )
             
             return cur.fetchall()
+        
+        
+def init_db():
+    """アプリケーション起動時にテーブルを作成する"""
+    with get_db_connection() as conn:
+        with conn.cursor() as cur:
+            # セッション管理テーブルの作成
+            cur.execute("""
+                CREATE TABLE IF NOT EXISTS chat_sessions (
+                    id SERIAL PRIMARY KEY,
+                    model TEXT,
+                    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+                );
+            """)
+            
+            # メッセージ履歴テーブルの作成
+            cur.execute("""
+                CREATE TABLE IF NOT EXISTS chat_messages (
+                    id SERIAL PRIMARY KEY,
+                    session_id INTEGER REFERENCES chat_sessions(id),
+                    role TEXT,
+                    content TEXT,
+                    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+                );
+            """)
+            conn.commit()

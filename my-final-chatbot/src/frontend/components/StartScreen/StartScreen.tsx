@@ -10,9 +10,9 @@ function StartScreen({ onStart }: StartScreenProps) {
     <div className = "screen-container">
 
         <div className="start-screen">
-            <h1 className='header-title'>Politics Study</h1>
-            <h2>早苗さんの政策について学ぼう！</h2>
-            <p>任意のお問い合わせに対して早苗さんの考えを返答します。</p>
+        <h1 className='header-title'>政策Chatbot</h1>
+            <h2>政治について学習しよう</h2>
+            <p>任意の質問に対して、高市総理の考えを返答します。</p>
             <button className='Start-button' onClick={onStart}>チャットを始める
             </button>
         </div>

@@ -106,7 +106,9 @@ const ChatScreen: React.FC<ChatScreenProps> = ({ onBack, onReset, sessionId, set
     <div className="screen-container">
       <div className="chat-card">
         <div className="header">
-          <div className="chat-title">政策Chatbot</div>
+          <div className="chat-title">
+            <h2>政策Chatbot</h2>
+          </div>
           <button className="back-button" onClick={onBack}>&larr; 戻る</button>
         </div>
 

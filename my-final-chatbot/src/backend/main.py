@@ -5,11 +5,10 @@ from pydantic import BaseModel
 from openai import AzureOpenAI
 from fastapi.middleware.cors import CORSMiddleware
 from dotenv import load_dotenv
-from database_utils import init_db
+
 from contextlib import asynccontextmanager
 
-
-from database_utils import save_message,create_session, get_chat_history
+from database_utils import init_db, save_message, create_session, get_chat_history
 
 load_dotenv()
 @asynccontextmanager
@@ -25,6 +24,7 @@ async def lifespan(app: FastAPI):
     
     # --- 終了時の処理 ---
     print("Shutting down...")
+    
 app = FastAPI(lifespan=lifespan)
 
 origins = [
@@ -54,6 +54,15 @@ class ChatRequest(BaseModel):
 MAX_HISTORY_COUNT = int(os.getenv("MAX_HISTORY_COUNT", 10))
 
 DEPLOYMENT_NAME = os.getenv("AZURE_OPENAI_DEPLOYMENT_NAME")
+
+@app.get("/init-db")
+def manual_init_db():
+    try:
+        init_db()
+        return {"status": "success", "message": "Database tables created/verified successfully."}
+    except Exception as e:
+        return {"status": "error", "message": str(e)}
+
 
 @app.post("/chat")
 

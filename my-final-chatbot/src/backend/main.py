@@ -8,6 +8,7 @@ from dotenv import load_dotenv
 from database_utils import init_db
 from contextlib import asynccontextmanager
 
+
 from database_utils import save_message,create_session, get_chat_history
 
 load_dotenv()
@@ -27,7 +28,7 @@ async def lifespan(app: FastAPI):
 app = FastAPI(lifespan=lifespan)
 
 origins = [
-    "http://localhost:3000",]
+    "*",]
 
 app.add_middleware(
     CORSMiddleware,

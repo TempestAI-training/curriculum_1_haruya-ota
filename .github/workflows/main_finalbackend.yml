@@ -9,7 +9,7 @@ on:
     branches:
       - main
     paths:
-      - 'final-backend/**'
+      - 'my-final-chatbot/src/backend/**'
   workflow_dispatch:
 
 jobs:
@@ -27,7 +27,7 @@ jobs:
           python-version: '3.11'
 
       - name: Install dependencies and validate
-        working-directory: final-backend
+        working-directory: my-final-chatbot/src/backend
         run: |
           python -m venv antenv
           source antenv/bin/activate

@@ -22,6 +22,7 @@ const ChatScreen: React.FC<ChatScreenProps> = ({ onBack, onReset, sessionId, set
 
   const [inputText, setInputText] = useState("");
   const [isTyping, setIsTyping] = useState(false);
+  const API_BASE_URL = process.env.REACT_APP_API_URL || "http://localhost:8000";
   
 
   const handleSend = async () => {
@@ -51,7 +52,7 @@ const ChatScreen: React.FC<ChatScreenProps> = ({ onBack, onReset, sessionId, set
     console.log(">>> 2. fetch直前: payload ->", { message: currentInput, session_id: sessionId });
 
     try {
-      const response = await fetch("http://localhost:8000/chat", {
+      const response = await fetch(`${API_BASE_URL}/chat`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ 
